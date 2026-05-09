@@ -49,38 +49,53 @@ export default function Home() {
         {/* ── Bio + Photo ── */}
         <section className="flex flex-1 flex-col gap-12 lg:flex-row lg:gap-16">
           <div className="max-w-[470px] flex-1">
-            <h1 className="mb-10 text-[18px] font-semibold tracking-[-0.02em] lg:hidden">
-              Farel Ganlaky
-            </h1>
             <div className="space-y-8 text-[18px] leading-[1.65] tracking-[-0.02em] text-[var(--foreground)]">
               <p>
-                I&apos;m the founder and CEO of{" "}
+                I&apos;m Farel Ganlaky, an AI engineer based in Benin. I work at{" "}
                 <a
-                  href="https://agno.com/"
+                  href="https://tamebi.ai/"
                   target="_blank"
                   rel="noreferrer"
                   className="text-[var(--accent)] underline decoration-[rgba(163,58,50,0.35)] underline-offset-3"
                 >
-                  Agno
+                  Tamebi AI
                 </a>
-                , a technology company building large scale multi-agent systems.
+                , where we build conversational agentic search for ecommerce
+                through our product{" "}
+                <a
+                  href="https://qualiwo.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[var(--accent)] underline decoration-[rgba(163,58,50,0.35)] underline-offset-3"
+                >
+                  Qualiwo
+                </a>
+                .
               </p>
               <p>
-                A software engineer by trade, I&apos;ve been building software,
-                ML and data infrastructure for over 15 years. My career includes
-                stints at Airbnb, Facebook, Instagram and Cisco, where I built
-                systems for solving the toughest technical problems.
+                My work also focuses on LLM inference, standardizing inference
+                workflows, and helping companies integrate open-source models
+                when privacy matters. You can see more of that work at{" "}
+                <a
+                  href="https://lab.tamebi.ai/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[var(--accent)] underline decoration-[rgba(163,58,50,0.35)] underline-offset-3"
+                >
+                  lab.tamebi.ai
+                </a>
+                .
               </p>
               <p>
-                Today, I partner with the top companies to launch AI products
-                that push boundaries, whether it&apos;s multi-agent systems,
-                advanced research programs, or workflows powered by language
-                models.
+                Before this, I spent eight years in Morocco, where I studied
+                and worked. Day to day, I build systems and read research papers
+                on search, continual learning, and model compression. Outside of
+                AI, my lifelong passion is musical instruments.
               </p>
             </div>
           </div>
 
-          <aside className="w-full max-w-[220px] lg:pt-2">
+          <aside className="w-full lg:max-w-[220px] lg:pt-2">
             <div className="relative aspect-square w-full overflow-hidden rounded-md border border-black/5 bg-[#e9e3dc]">
               <Image
                 src="/farel.jpg"
@@ -94,25 +109,7 @@ export default function Home() {
 
             <div className="mt-8 space-y-4 text-[14px] text-[var(--muted)]">
               <a
-                href="https://x.com/ashpreetbedi"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 transition-colors hover:text-[var(--foreground)]"
-              >
-                <FaXTwitter className="h-4 w-4" aria-hidden="true" />
-                <span>X</span>
-              </a>
-              <a
-                href="https://github.com/agno-agi/agno"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 transition-colors hover:text-[var(--foreground)]"
-              >
-                <FaGithub className="h-4 w-4" aria-hidden="true" />
-                <span>GitHub</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ashpreetbedi/"
+                href="https://www.linkedin.com/in/farel-ganlaky-395293252/"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 transition-colors hover:text-[var(--foreground)]"
@@ -121,11 +118,29 @@ export default function Home() {
                 <span>LinkedIn</span>
               </a>
               <a
-                href="mailto:hi@farelganlaky.com"
+                href="https://x.com/farelmanifold"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 transition-colors hover:text-[var(--foreground)]"
+              >
+                <FaXTwitter className="h-4 w-4" aria-hidden="true" />
+                <span>X</span>
+              </a>
+              <a
+                href="https://github.com/Farelart"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 transition-colors hover:text-[var(--foreground)]"
+              >
+                <FaGithub className="h-4 w-4" aria-hidden="true" />
+                <span>GitHub</span>
+              </a>
+              <a
+                href="mailto:farelganlaky@gmail.com"
                 className="flex items-center gap-3 text-[14px] text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
               >
                 <FaEnvelope className="h-4 w-4" aria-hidden="true" />
-                <span>hi@farelganlaky.com</span>
+                <span>farelganlaky@gmail.com</span>
               </a>
             </div>
           </aside>
@@ -183,16 +198,16 @@ export default function Home() {
         </section>
 
         {/* ── Newsletter ── */}
-        <section className="mt-16 rounded-lg border border-[var(--border)] p-8 sm:p-10">
-          <div className="flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--muted)]">
+        <section className="mt-16">
+          <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
             <FaEnvelope className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Stay up to date</span>
           </div>
-          <p className="mt-3 text-[15px] text-[var(--muted)]">
+          <p className="mt-5 text-[14px] text-[var(--muted)]">
             Get notified when I publish something new.
           </p>
           <form
-            className="mt-5 flex flex-col gap-3 sm:flex-row"
+            className="mt-7 flex gap-2"
           >
             <input
               id="newsletter-email"
@@ -200,11 +215,11 @@ export default function Home() {
               placeholder="Email address"
               aria-label="Email address"
               required
-              className="h-11 flex-1 rounded-md border border-[var(--border)] bg-transparent px-4 text-[14px] text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--accent)]"
+              className="h-[42px] min-w-0 flex-1 rounded-md border border-[rgba(41,37,36,0.14)] bg-transparent px-3 text-[14px] text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--accent)]"
             />
             <button
               type="submit"
-              className="h-11 rounded-md bg-[var(--foreground)] px-6 text-[13px] font-medium text-[var(--background)] transition-opacity hover:opacity-80"
+              className="h-[42px] rounded-md bg-[#171820] px-4 text-[13px] font-semibold text-white transition-opacity hover:opacity-85"
             >
               Join
             </button>
@@ -220,14 +235,16 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap items-center gap-3 text-[13px] normal-case tracking-normal text-[var(--muted)]">
             <a
-              href="mailto:hi@farelganlaky.com"
-              aria-label="Email"
+              href="https://www.linkedin.com/in/farel-ganlaky-395293252/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
               className="transition-colors hover:text-[var(--foreground)]"
             >
-              <FaEnvelope className="h-4 w-4" aria-hidden="true" />
+              <FaLinkedinIn className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
-              href="https://x.com/ashpreetbedi"
+              href="https://x.com/farelmanifold"
               target="_blank"
               rel="noreferrer"
               aria-label="X"
@@ -236,7 +253,7 @@ export default function Home() {
               <FaXTwitter className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
-              href="https://github.com/agno-agi/agno"
+              href="https://github.com/Farelart"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
@@ -245,13 +262,11 @@ export default function Home() {
               <FaGithub className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
-              href="https://www.linkedin.com/in/ashpreetbedi/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
+              href="mailto:farelganlaky@gmail.com"
+              aria-label="Email"
               className="transition-colors hover:text-[var(--foreground)]"
             >
-              <FaLinkedinIn className="h-4 w-4" aria-hidden="true" />
+              <FaEnvelope className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
         </footer>
