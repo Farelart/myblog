@@ -3,7 +3,7 @@ import type { Article } from "@/lib/articles";
 export const fromKeywordsToMeaningTextSearch: Article = {
   slug: "from-keywords-to-meaning-text-search",
   title: "From Keywords to Meaning: A Complete Guide to Text Search",
-  date: "2026-05-10",
+  date: "2026-05-12",
   excerpt:
     "A practical map for engineers who want to build text search, from exact matching to semantic, hybrid, and conversational systems.",
   content: `

@@ -59,32 +59,17 @@ export default function TextSearchArticleReader({
         <div className="article-outline-inner">
           <p>Outline</p>
           <nav>
-            {sections.map((section) => {
-              const isClosed = Boolean(closedSections[section.number]);
-
-              return (
-                <div className="article-outline-row" key={section.id}>
-                  <button
-                    aria-controls={`${section.id}-body`}
-                    aria-expanded={!isClosed}
-                    aria-label={`${isClosed ? "Open" : "Close"} ${section.title}`}
-                    className={`article-outline-toggle ${isClosed ? "" : "is-open"}`}
-                    onClick={() => toggleSection(section.number)}
-                    type="button"
-                  >
-                    <FaChevronRight aria-hidden="true" />
-                  </button>
-                  <a
-                    className="article-outline-link"
-                    href={`#${section.id}`}
-                    onClick={() => openSection(section.number)}
-                  >
-                    <span>{section.number}</span>
-                    {section.title}
-                  </a>
-                </div>
-              );
-            })}
+            {sections.map((section) => (
+              <a
+                className="article-outline-link"
+                href={`#${section.id}`}
+                key={section.id}
+                onClick={() => openSection(section.number)}
+              >
+                <span>{section.number}</span>
+                {section.title}
+              </a>
+            ))}
           </nav>
         </div>
       </aside>
@@ -97,20 +82,28 @@ export default function TextSearchArticleReader({
 
           return (
             <section className="article-collapsible-section" key={section.id}>
-              <div className="prose-article">
-                <h2 id={section.id}>
+              <div className="article-section-heading" id={section.id}>
+                <button
+                  aria-controls={`${section.id}-body`}
+                  aria-expanded={!isClosed}
+                  aria-label={`${isClosed ? "Open" : "Close"} ${section.title}`}
+                  className={`article-section-toggle ${isClosed ? "" : "is-open"}`}
+                  onClick={() => toggleSection(section.number)}
+                  type="button"
+                >
+                  <FaChevronRight aria-hidden="true" />
+                </button>
+                <h2>
                   {section.number}. {section.title}
                 </h2>
               </div>
 
-              {!isClosed && (
-                <div id={`${section.id}-body`}>
-                  {hasSectionSearchAnimation(section.number) && (
-                    <SectionSearchAnimation section={section.number} />
-                  )}
-                  {renderInlineContent(section.bodyHtml, section.id)}
-                </div>
-              )}
+              <div hidden={isClosed} id={`${section.id}-body`}>
+                {hasSectionSearchAnimation(section.number) && (
+                  <SectionSearchAnimation section={section.number} />
+                )}
+                {renderInlineContent(section.bodyHtml, section.id)}
+              </div>
             </section>
           );
         })}

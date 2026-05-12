@@ -16,9 +16,22 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) return {};
+  const title = `${article.title} - Farel Ganlaky`;
+
   return {
-    title: `${article.title} - Farel Ganlaky`,
+    title,
     description: article.excerpt,
+    openGraph: {
+      title,
+      description: article.excerpt,
+      type: "article",
+      publishedTime: article.date,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: article.excerpt,
+    },
   };
 }
 

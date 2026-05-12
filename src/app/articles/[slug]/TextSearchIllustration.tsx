@@ -7,9 +7,7 @@ type ModeId =
   | "exact"
   | "fulltext"
   | "fuzzy"
-  | "synonyms"
   | "filters"
-  | "semantic"
   | "vector"
   | "hybrid"
   | "rerank";
@@ -45,25 +43,11 @@ const modes: Mode[] = [
     note: "Fuzzy search repairs spelling distance. It fixes approximate words, but it does not understand intent, so it needs tight limits around brands, SKUs, and short terms.",
   },
   {
-    id: "synonyms",
-    label: "Synonyms",
-    query: "shoes for rainy days",
-    badge: "Vocabulary bridge",
-    note: "Synonyms are domain rules that translate user vocabulary into catalog vocabulary. They work best when they are curated for the product language.",
-  },
-  {
     id: "filters",
     label: "Filters",
     query: "waterproof shoes under $120 size 42",
     badge: "Structured constraint",
     note: "Filters enforce facts before ranking. Price, size, stock, location, and availability should be treated as constraints, not as vibes.",
-  },
-  {
-    id: "semantic",
-    label: "Semantic",
-    query: "something for walking in the rain",
-    badge: "Meaning match",
-    note: "Semantic search means matching meaning. Vectors are common, but meaning can also come from ontologies, taxonomies, knowledge graphs, and rules.",
   },
   {
     id: "vector",
@@ -154,12 +138,8 @@ function renderLayerVisual(id: ModeId) {
       return <FullTextVisual />;
     case "fuzzy":
       return <FuzzyVisual />;
-    case "synonyms":
-      return <SynonymVisual />;
     case "filters":
       return <FilterVisual />;
-    case "semantic":
-      return <SemanticVisual />;
     case "vector":
       return <VectorVisual />;
     case "hybrid":
@@ -259,35 +239,6 @@ function FuzzyVisual() {
   );
 }
 
-function SynonymVisual() {
-  return (
-    <div className="search-lab-synonyms">
-      <div className="synonym-column">
-        <small>User words</small>
-        <span>shoes</span>
-        <span>rainy days</span>
-      </div>
-
-      <div className="synonym-bridge" aria-hidden="true">
-        <span />
-        <span />
-        <b>domain rules</b>
-      </div>
-
-      <div className="synonym-column is-catalog">
-        <small>Catalog words</small>
-        <span>sneakers / trainers</span>
-        <span>waterproof / water-resistant</span>
-      </div>
-
-      <p>
-        The bridge is deliberate: <strong>trainers</strong> can mean footwear here,
-        but not a person coaching at the gym.
-      </p>
-    </div>
-  );
-}
-
 function FilterVisual() {
   const gates = [
     ["all candidates", "2,400"],
@@ -308,24 +259,6 @@ function FilterVisual() {
       <div className="filter-final">
         <small>rank only these</small>
         <strong>18 products</strong>
-      </div>
-    </div>
-  );
-}
-
-function SemanticVisual() {
-  return (
-    <div className="search-lab-semantic">
-      <div className="semantic-intent">
-        <small>intent</small>
-        <strong>dry feet + grip + comfortable walk</strong>
-      </div>
-
-      <div className="semantic-method-grid">
-        <MeaningCard title="Knowledge graph" body="rain -> wet ground -> traction" />
-        <MeaningCard title="Ontology" body="trail shoe is-a shoe" />
-        <MeaningCard title="Taxonomy" body="footwear / running / trail" />
-        <MeaningCard title="Embeddings" body="meaning as nearby vectors" />
       </div>
     </div>
   );
@@ -556,15 +489,6 @@ function LetterRow({ letters, state }: { letters: string[]; state: "wrong" | "ri
       {letters.map((letter, index) => (
         <i key={`${letter}-${index}`}>{letter}</i>
       ))}
-    </div>
-  );
-}
-
-function MeaningCard({ body, title }: { body: string; title: string }) {
-  return (
-    <div className="meaning-method">
-      <strong>{title}</strong>
-      <span>{body}</span>
     </div>
   );
 }
