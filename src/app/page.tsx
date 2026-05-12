@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
+import { GiGuitar, GiPianoKeys, GiSaxophone } from "react-icons/gi";
 import { articles, formatDate } from "@/lib/articles";
 
 const RECENT_COUNT = 3;
@@ -49,48 +50,80 @@ export default function Home() {
         {/* ── Bio + Photo ── */}
         <section className="flex flex-1 flex-col gap-12 lg:flex-row lg:gap-16">
           <div className="max-w-[470px] flex-1">
-            <div className="space-y-8 text-[18px] leading-[1.65] tracking-[-0.02em] text-[var(--foreground)]">
+            <div className="bio-copy space-y-5 text-[18px] leading-[1.6] tracking-[-0.02em] text-[var(--foreground)]">
               <p>
-                I&apos;m Farel Ganlaky, an AI engineer based in Benin. I work at{" "}
+                I&apos;m Farel Ganlaky, an AI engineer based in Benin{" "}
+                <span
+                  aria-label="Benin flag"
+                  className="inline-flex h-[0.78em] w-[1.15em] overflow-hidden rounded-[2px] border border-black/15 align-[-0.08em] shadow-[0_1px_2px_rgba(41,37,36,0.08)]"
+                  title="Benin"
+                >
+                  <span className="h-full w-[40%] bg-[#008751]" />
+                  <span className="flex h-full flex-1 flex-col">
+                    <span className="flex-1 bg-[#fcd116]" />
+                    <span className="flex-1 bg-[#e8112d]" />
+                  </span>
+                </span>
+                . I work at{" "}
                 <a
                   href="https://tamebi.ai/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[var(--accent)] underline decoration-[rgba(163,58,50,0.35)] underline-offset-3"
                 >
                   Tamebi AI
                 </a>
-                , where we build conversational agentic search for ecommerce
-                through our product{" "}
+                , building{" "}
+                <span className="bio-highlight">
+                  conversational agentic search
+                </span>{" "}
+                for ecommerce through{" "}
                 <a
                   href="https://qualiwo.com/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[var(--accent)] underline decoration-[rgba(163,58,50,0.35)] underline-offset-3"
                 >
                   Qualiwo
                 </a>
                 .
               </p>
               <p>
-                My work also focuses on LLM inference, standardizing inference
-                workflows, and helping companies integrate open-source models
-                when privacy matters. You can see more of that work at{" "}
+                I also work on{" "}
+                <span className="bio-highlight">LLM inference</span>
+                : standardizing inference workflows and helping companies adopt{" "}
+                open-source models when privacy matters. More of this work lives at{" "}
                 <a
                   href="https://lab.tamebi.ai/"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[var(--accent)] underline decoration-[rgba(163,58,50,0.35)] underline-offset-3"
                 >
                   lab.tamebi.ai
                 </a>
                 .
               </p>
               <p>
-                Before this, I spent eight years in Morocco, where I studied
-                and worked. Day to day, I build systems and read research papers
-                on search, continual learning, and model compression. Outside of
-                AI, my lifelong passion is musical instruments.
+                Before this, I spent eight years studying and working in Morocco{" "}
+                <span
+                  aria-label="Morocco flag"
+                  className="relative ml-1 inline-flex h-[0.95em] w-[1.4em] items-center justify-center rounded-[2px] border border-black/15 bg-[#c1272d] text-[0.62em] leading-none text-[#006233] align-[-0.12em] shadow-[0_1px_2px_rgba(41,37,36,0.08)]"
+                  title="Morocco"
+                >
+                  ★
+                </span>
+                . Day to day, I build systems, read papers on{" "}
+                <span className="bio-highlight">
+                  search, memory, continual learning, and compression
+                </span>
+                , and stay close to my lifelong passion:{" "}
+                <span className="bio-highlight">musical instruments</span>
+                <span
+                  aria-label="Piano, guitar, and saxophone"
+                  className="ml-1.5 inline-flex flex-row items-center gap-1 align-[-0.12em] text-[var(--muted)]"
+                >
+                  <GiPianoKeys aria-hidden="true" className="h-[1em] w-[1em]" />
+                  <GiGuitar aria-hidden="true" className="h-[1em] w-[1em]" />
+                  <GiSaxophone aria-hidden="true" className="h-[1em] w-[1em]" />
+                </span>
+                .
               </p>
             </div>
           </div>
@@ -107,7 +140,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="mt-8 space-y-4 text-[14px] text-[var(--muted)]">
+            <div className="mt-6 space-y-3 text-[14px] text-[var(--muted)]">
               <a
                 href="https://www.linkedin.com/in/farel-ganlaky-395293252/"
                 target="_blank"
@@ -147,10 +180,10 @@ export default function Home() {
         </section>
 
         {/* ── Recent Articles ── */}
-        <section className="mt-20 sm:mt-28">
+        <section className="mt-14 sm:mt-18">
           <div className="space-y-0 divide-y divide-[var(--border)]">
             {recent.map((article, i) => (
-              <article key={article.slug} className="py-10 first:pt-0">
+              <article key={article.slug} className="py-7 first:pt-0">
                 <time
                   dateTime={article.date}
                   className="block text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--muted)]"
@@ -166,7 +199,7 @@ export default function Home() {
                 >
                   <Link
                     href={`/articles/${article.slug}`}
-                    className="hover:underline underline-offset-4 decoration-[rgba(163,58,50,0.4)]"
+                    className="hover:underline underline-offset-4 decoration-[var(--accent-decoration)]"
                   >
                     {article.title}
                   </Link>
@@ -186,7 +219,7 @@ export default function Home() {
           </div>
 
           {/* All Writing link */}
-          <div className="mt-6 border-t border-[var(--border)] pt-8">
+          <div className="mt-4 border-t border-[var(--border)] pt-6">
             <Link
               href="/articles"
               className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
@@ -198,16 +231,16 @@ export default function Home() {
         </section>
 
         {/* ── Newsletter ── */}
-        <section className="mt-16">
+        <section className="mt-12">
           <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
             <FaEnvelope className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Stay up to date</span>
           </div>
-          <p className="mt-5 text-[14px] text-[var(--muted)]">
+          <p className="mt-4 text-[14px] text-[var(--muted)]">
             Get notified when I publish something new.
           </p>
           <form
-            className="mt-7 flex gap-2"
+            className="mt-5 flex gap-2"
           >
             <input
               id="newsletter-email"
@@ -227,7 +260,7 @@ export default function Home() {
         </section>
 
         {/* ── Footer ── */}
-        <footer className="footer-rule mt-20 flex flex-col gap-6 pt-6 text-[11px] uppercase tracking-[0.2em] text-[var(--muted)] sm:mt-12 sm:flex-row sm:items-center sm:justify-between">
+        <footer className="footer-rule mt-14 flex flex-col gap-5 pt-6 text-[11px] uppercase tracking-[0.2em] text-[var(--muted)] sm:mt-10 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-4">
             <span>© 2026 Farel Ganlaky</span>
             <span className="text-[var(--accent)]">•</span>

@@ -39,11 +39,11 @@ export default function ArticlesPage() {
         </header>
 
         {/* ── Title ── */}
-        <section className="mb-12 max-w-[560px]">
+        <section className="mb-9 max-w-[560px]">
           <h1 className="text-[28px] font-semibold tracking-[-0.03em] text-[var(--foreground)]">
             Articles
           </h1>
-          <p className="mt-4 text-[17px] leading-8 text-[var(--muted)]">
+          <p className="mt-3 text-[17px] leading-7 text-[var(--muted)]">
             Writing on software, AI, and the systems we build around them.
           </p>
         </section>
@@ -51,7 +51,7 @@ export default function ArticlesPage() {
         {/* ── Article List ── */}
         <div className="divide-y divide-[var(--border)]">
           {articles.map((article, i) => (
-            <article key={article.slug} className="py-10 first:pt-0">
+            <article key={article.slug} className="py-7 first:pt-0">
               <time
                 dateTime={article.date}
                 className="block text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--muted)]"
@@ -67,17 +67,17 @@ export default function ArticlesPage() {
               >
                 <Link
                   href={`/articles/${article.slug}`}
-                  className="hover:underline underline-offset-4 decoration-[rgba(163,58,50,0.4)]"
+                  className="hover:underline underline-offset-4 decoration-[var(--accent-decoration)]"
                 >
                   {article.title}
                 </Link>
               </h2>
-              <p className="mt-3 text-[16px] leading-[1.7] text-[var(--muted)]">
+              <p className="mt-3 text-[16px] leading-[1.6] text-[var(--muted)]">
                 {article.excerpt}
               </p>
               <Link
                 href={`/articles/${article.slug}`}
-                className="mt-5 inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--accent)] transition-opacity hover:opacity-70"
+                className="mt-4 inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--accent)] transition-opacity hover:opacity-70"
               >
                 Read Article
                 <span aria-hidden="true">→</span>
