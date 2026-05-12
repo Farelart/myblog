@@ -55,24 +55,11 @@ export default function TextSearchArticleReader({
 
   return (
     <div className="text-search-reader">
-      <aside aria-label="Article outline" className="article-outline">
-        <div className="article-outline-inner">
-          <p>Outline</p>
-          <nav>
-            {sections.map((section) => (
-              <a
-                className="article-outline-link"
-                href={`#${section.id}`}
-                key={section.id}
-                onClick={() => openSection(section.number)}
-              >
-                <span>{section.number}</span>
-                {section.title}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </aside>
+      <ArticleOutline
+        className="article-outline-left"
+        onOpenSection={openSection}
+        sections={sections}
+      />
 
       <article className="text-search-reader-main">
         <TextSearchIllustration />
@@ -108,7 +95,44 @@ export default function TextSearchArticleReader({
           );
         })}
       </article>
+
+      <ArticleOutline
+        className="article-outline-right"
+        onOpenSection={openSection}
+        sections={sections}
+      />
     </div>
+  );
+}
+
+function ArticleOutline({
+  className,
+  onOpenSection,
+  sections,
+}: {
+  className: string;
+  onOpenSection: (sectionNumber: number) => void;
+  sections: ArticleSection[];
+}) {
+  return (
+    <aside aria-label="Article outline" className={`article-outline ${className}`}>
+      <div className="article-outline-inner">
+        <p>Outline</p>
+        <nav>
+          {sections.map((section) => (
+            <a
+              className="article-outline-link"
+              href={`#${section.id}`}
+              key={section.id}
+              onClick={() => onOpenSection(section.number)}
+            >
+              <span>{section.number}</span>
+              {section.title}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </aside>
   );
 }
 
