@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FaArrowLeft, FaEnvelope } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa6";
 import { articles, getArticle, formatDate } from "@/lib/articles";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import TextSearchArticleReader from "./TextSearchArticleReader";
 
 interface Props {
@@ -33,36 +34,6 @@ export async function generateMetadata({ params }: Props) {
       description: article.excerpt,
     },
   };
-}
-
-function ArticleNewsletter() {
-  return (
-    <section className="article-newsletter">
-      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
-        <FaEnvelope className="h-3.5 w-3.5" aria-hidden="true" />
-        <span>Stay up to date</span>
-      </div>
-      <p className="mt-4 text-[14px] text-[var(--muted)]">
-        Get notified when I publish something new.
-      </p>
-      <form className="mt-5 flex gap-2">
-        <input
-          id="article-newsletter-email"
-          type="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="h-[42px] min-w-0 flex-1 rounded-md border border-[rgba(41,37,36,0.14)] bg-transparent px-3 text-[14px] text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--accent)]"
-        />
-        <button
-          type="submit"
-          className="h-[42px] rounded-md bg-[#171820] px-4 text-[13px] font-semibold text-white transition-opacity hover:opacity-85"
-        >
-          Join
-        </button>
-      </form>
-    </section>
-  );
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -137,7 +108,7 @@ export default async function ArticlePage({ params }: Props) {
         )}
 
         <div className="article-page-inner">
-          <ArticleNewsletter />
+          <NewsletterSignup className="article-newsletter" source="article" />
         </div>
       </div>
     </main>

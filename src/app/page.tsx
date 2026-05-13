@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa6";
 import { GiGuitar, GiPianoKeys, GiSaxophone } from "react-icons/gi";
 import { articles, formatDate } from "@/lib/articles";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const RECENT_COUNT = 3;
 
@@ -231,33 +232,7 @@ export default function Home() {
         </section>
 
         {/* ── Newsletter ── */}
-        <section className="mt-12">
-          <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
-            <FaEnvelope className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Stay up to date</span>
-          </div>
-          <p className="mt-4 text-[14px] text-[var(--muted)]">
-            Get notified when I publish something new.
-          </p>
-          <form
-            className="mt-5 flex gap-2"
-          >
-            <input
-              id="newsletter-email"
-              type="email"
-              placeholder="Email address"
-              aria-label="Email address"
-              required
-              className="h-[42px] min-w-0 flex-1 rounded-md border border-[rgba(41,37,36,0.14)] bg-transparent px-3 text-[14px] text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--accent)]"
-            />
-            <button
-              type="submit"
-              className="h-[42px] rounded-md bg-[#171820] px-4 text-[13px] font-semibold text-white transition-opacity hover:opacity-85"
-            >
-              Join
-            </button>
-          </form>
-        </section>
+        <NewsletterSignup className="mt-12" source="home" />
 
         {/* ── Footer ── */}
         <footer className="footer-rule mt-14 flex flex-col gap-5 pt-6 text-[11px] uppercase tracking-[0.2em] text-[var(--muted)] sm:mt-10 sm:flex-row sm:items-center sm:justify-between">

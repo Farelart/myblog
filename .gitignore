@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+/data/newsletter-signups.jsonl
 
 # debug
 npm-debug.log*
