@@ -15,7 +15,7 @@ import TextSearchIllustration from "./TextSearchIllustration";
 const INTRO_MISMATCH_MARKER = "<!-- intro-mismatch-illustration -->";
 const SECTION_HEADING_PATTERN = /<h2>(\d+)\.\s*([\s\S]*?)<\/h2>/g;
 const INLINE_CONTENT_PATTERN =
-  /<!-- intro-mismatch-illustration -->|<!-- detail-animation-(\d+) -->/g;
+  /<!-- intro-mismatch-illustration -->|<!-- detail-animation-([a-z0-9-]+) -->/g;
 
 type ArticleSection = {
   bodyHtml: string;
@@ -174,7 +174,7 @@ function renderInlineContent(html: string, keyPrefix: string) {
   INLINE_CONTENT_PATTERN.lastIndex = 0;
 
   while ((match = INLINE_CONTENT_PATTERN.exec(html)) !== null) {
-    const [matchedText, detailSectionNumber] = match;
+    const [matchedText, detailAnimationId] = match;
     const before = html.slice(cursor, match.index);
     const beforeNode = renderArticleHtml(before, `${keyPrefix}-html-${cursor}`);
 
@@ -182,14 +182,12 @@ function renderInlineContent(html: string, keyPrefix: string) {
 
     if (matchedText === INTRO_MISMATCH_MARKER) {
       nodes.push(<IntroMismatchIllustration key={`${keyPrefix}-intro-mismatch`} />);
-    } else if (detailSectionNumber) {
-      const section = Number(detailSectionNumber);
-
-      if (hasDetailSearchAnimation(section)) {
+    } else if (detailAnimationId) {
+      if (hasDetailSearchAnimation(detailAnimationId)) {
         nodes.push(
           <DetailSearchAnimation
-            key={`${keyPrefix}-detail-animation-${section}`}
-            section={section}
+            animationId={detailAnimationId}
+            key={`${keyPrefix}-detail-animation-${detailAnimationId}`}
           />,
         );
       }

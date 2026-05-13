@@ -1,52 +1,47 @@
 type DetailSearchAnimationProps = {
-  section: number;
+  animationId: string;
 };
 
-const detailTitles: Record<number, string> = {
-  0: "One retrieval core behind two interfaces",
-  1: "Exact matching literally asks: does the string appear?",
-  2: "An inverted index flips products into term lookups",
-  3: "Analysis decides what the engine is allowed to find",
-  4: "BM25 balances rarity, repetition, and document length",
-  5: "Positions let the engine understand closeness",
-  6: "Edit distance measures how far a typo moved",
-  7: "Synonyms are a domain graph, not a thesaurus dump",
-  8: "Filters enforce constraints before ranking",
-  9: "Autocomplete is a tiny predictive search system",
-  10: "Semantic search is broader than vectors",
-  11: "Vector search embeds text, then compares geometry",
-  12: "Hybrid retrieval merges different evidence streams",
-  13: "A reranker reads query and product together",
-  14: "Learning to rank turns signals into an ordering model",
-  15: "A chatbot extracts slots before it searches",
-  16: "RAG grounds generation in retrieved evidence",
-  17: "Agents turn goals into tool sequences",
-  18: "Evaluation converts relevance into measurable feedback",
-  19: "Debugging follows the failed result through the pipeline",
+const detailTitles: Record<string, string> = {
+  platform: "One retrieval core behind two interfaces",
+  exact: "Exact matching literally asks: does the string appear?",
+  "inverted-index": "An inverted index flips products into term lookups",
+  analysis: "Analysis decides what the engine is allowed to find",
+  ranking: "BM25 balances rarity, repetition, and document length",
+  "query-forgiveness":
+    "Query forgiveness combines closeness, typos, and domain language",
+  filters: "Filters enforce constraints before ranking",
+  semantic: "Semantic search is broader than vectors",
+  "vector-index": "Vector search embeds text, then compares geometry",
+  hybrid: "Hybrid retrieval merges different evidence streams",
+  reranking: "A reranker reads query and product together",
+  "ai-interface": "Chat, RAG, and agents are interfaces over retrieval",
+  operating: "Evaluation, debugging, and build order form one loop",
+  "mental-model": "Every layer solves one failure mode",
 };
 
-export function hasDetailSearchAnimation(section: number) {
-  return section >= 0 && section <= 19;
+export function hasDetailSearchAnimation(animationId: string) {
+  return animationId in detailTitles;
 }
 
 export default function DetailSearchAnimation({
-  section,
+  animationId,
 }: DetailSearchAnimationProps) {
   return (
     <section
-      aria-label={`Detailed animation for section ${section}: ${detailTitles[section]}`}
-      className={`article-animation detail-animation detail-animation-${section}`}
+      aria-label={`Detailed animation: ${detailTitles[animationId]}`}
+      className={`article-animation detail-animation detail-animation-${animationId}`}
     >
       <p className="detail-animation-label">Deep dive</p>
-      <h3>{detailTitles[section]}</h3>
-      {renderDetail(section)}
+      <h3>{detailTitles[animationId]}</h3>
+      {renderDetail(animationId)}
     </section>
   );
 }
 
-function renderDetail(section: number) {
-  switch (section) {
-    case 0:
+function renderDetail(animationId: string) {
+  switch (animationId) {
+    case "platform":
       return (
         <div className="detail-interfaces">
           <div className="detail-phone">
@@ -64,7 +59,7 @@ function renderDetail(section: number) {
           </div>
         </div>
       );
-    case 1:
+    case "exact":
       return (
         <div className="detail-loop">
           {["waterproof sneakers", "city shoes", "trail shoes", "rain jacket"].map((item) => (
@@ -75,7 +70,7 @@ function renderDetail(section: number) {
           ))}
         </div>
       );
-    case 2:
+    case "inverted-index":
       return (
         <div className="detail-index">
           {[
@@ -91,7 +86,7 @@ function renderDetail(section: number) {
           ))}
         </div>
       );
-    case 3:
+    case "analysis":
       return (
         <div className="detail-analyzer">
           {["Raw title", "Tokenizer", "Lowercase", "Synonyms", "Index terms"].map((step, index) => (
@@ -104,7 +99,7 @@ function renderDetail(section: number) {
           ))}
         </div>
       );
-    case 4:
+    case "ranking":
       return (
         <div className="detail-bm25">
           {[
@@ -120,41 +115,17 @@ function renderDetail(section: number) {
           ))}
         </div>
       );
-    case 5:
+    case "query-forgiveness":
       return (
-        <div className="detail-proximity">
-          {["waterproof", "running", "shoes", "for", "wet", "streets"].map((word, index) => (
-            <span key={word} className={index < 3 ? "is-close" : ""}>
-              {word}
-            </span>
-          ))}
+        <div className="detail-hybrid">
+          <div>Phrase: waterproof shoes stay together</div>
+          <div>Typo: shooes becomes shoes</div>
+          <strong>Forgiven query</strong>
+          <div>Synonym: rainy maps to waterproof</div>
+          <div>Autocomplete: rain suggests waterproof sneakers</div>
         </div>
       );
-    case 6:
-      return (
-        <div className="detail-fuzzy">
-          {[
-            ["shooes", "shoes", "delete o"],
-            ["snikers", "sneakers", "insert e,a"],
-            ["nik", "nike", "insert e"],
-          ].map(([bad, good, edit]) => (
-            <div key={bad}>
-              <span>{bad}</span>
-              <strong>{good}</strong>
-              <em>{edit}</em>
-            </div>
-          ))}
-        </div>
-      );
-    case 7:
-      return (
-        <div className="detail-synonym-graph">
-          {["shoes", "sneakers", "trainers", "waterproof", "rainy", "water-resistant"].map((node) => (
-            <span key={node}>{node}</span>
-          ))}
-        </div>
-      );
-    case 8:
+    case "filters":
       return (
         <div className="detail-funnel">
           {["all shoes", "waterproof", "size 42", "under $120", "in stock"].map((step) => (
@@ -162,16 +133,7 @@ function renderDetail(section: number) {
           ))}
         </div>
       );
-    case 9:
-      return (
-        <div className="detail-autocomplete">
-          <strong>rai</strong>
-          {["rain shoes", "rain boots", "rainy day sneakers", "waterproof trainers"].map((suggestion) => (
-            <span key={suggestion}>{suggestion}</span>
-          ))}
-        </div>
-      );
-    case 10:
+    case "semantic":
       return (
         <div className="detail-semantic">
           <div>
@@ -187,16 +149,16 @@ function renderDetail(section: number) {
             <span>meaning as geometry</span>
           </div>
           <p>
-            Vectors are common because they scale well, work with natural language,
-            and can retrieve paraphrases without hand-writing every rule.
+            Semantic search is the goal. Vectors are one implementation, not the
+            definition.
           </p>
         </div>
       );
-    case 11:
+    case "vector-index":
       return (
         <div className="detail-vector">
           <div className="detail-vector-formula">
-            cos(q, p) = q · p / ||q||||p||
+            cos(q, p) = q * p / ||q||||p||
           </div>
           {[
             ["query", "[0.12, 0.83, 0.44]"],
@@ -211,16 +173,17 @@ function renderDetail(section: number) {
           ))}
         </div>
       );
-    case 12:
+    case "hybrid":
       return (
         <div className="detail-hybrid">
           <div>BM25: Nike, trail, shoes</div>
           <div>Vector: rainy-day intent</div>
           <strong>RRF merge</strong>
+          <div>Filters: under $120, in stock</div>
           <div>Hybrid top results</div>
         </div>
       );
-    case 13:
+    case "reranking":
       return (
         <div className="detail-rerank">
           {["candidate #8", "candidate #2", "candidate #14"].map((candidate, index) => (
@@ -231,72 +194,31 @@ function renderDetail(section: number) {
           ))}
         </div>
       );
-    case 14:
-      return (
-        <div className="detail-ltr">
-          {["BM25", "vector", "clicks", "stock", "margin"].map((feature) => (
-            <span key={feature}>{feature}</span>
-          ))}
-          <strong>ranking model</strong>
-        </div>
-      );
-    case 15:
-      return (
-        <div className="detail-chat-slots">
-          {[
-            ["product_type", "shoes"],
-            ["weather", "rainy"],
-            ["terrain", "city"],
-            ["negative", "not hiking"],
-            ["budget", "not expensive"],
-          ].map(([slot, value]) => (
-            <div key={slot}>
-              <span>{slot}</span>
-              <strong>{value}</strong>
-            </div>
-          ))}
-        </div>
-      );
-    case 16:
+    case "ai-interface":
       return (
         <div className="detail-rag">
-          <span>question</span>
+          <span>parse request</span>
           <span>retrieve products</span>
-          <span>retrieve specs</span>
+          <span>apply constraints</span>
           <span>generate grounded answer</span>
+          <span>plan another step</span>
         </div>
       );
-    case 17:
-      return (
-        <div className="detail-agent">
-          {["plan", "search", "filter", "compare", "ask", "recommend"].map((step) => (
-            <span key={step}>{step}</span>
-          ))}
-        </div>
-      );
-    case 18:
-      return (
-        <div className="detail-eval">
-          {[
-            ["Recall@10", "94%"],
-            ["NDCG", "0.81"],
-            ["Zero-result", "2.7%"],
-            ["P95 latency", "128ms"],
-          ].map(([metric, value]) => (
-            <div key={metric}>
-              <span>{metric}</span>
-              <strong>{value}</strong>
-            </div>
-          ))}
-        </div>
-      );
-    case 19:
+    case "operating":
       return (
         <div className="detail-debug">
-          {["ingest", "analyze", "retrieve", "filter", "score", "rerank", "render"].map((stage, index) => (
+          {["query set", "metrics", "trace", "fix layer", "ship", "monitor"].map((stage, index) => (
             <span key={stage} className={index === 3 ? "is-failing" : ""}>
               {stage}
             </span>
+          ))}
+        </div>
+      );
+    case "mental-model":
+      return (
+        <div className="detail-agent">
+          {["characters", "terms", "ranking", "constraints", "meaning", "answers"].map((step) => (
+            <span key={step}>{step}</span>
           ))}
         </div>
       );

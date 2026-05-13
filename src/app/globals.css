@@ -1004,7 +1004,7 @@ a {
   transition: none !important;
 }
 
-.detail-animation-4 .detail-bm25 i {
+.detail-animation-ranking .detail-bm25 i {
   animation: detailBarGrow 2.8s ease-in-out infinite !important;
 }
 
