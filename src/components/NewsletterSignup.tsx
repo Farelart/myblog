@@ -48,11 +48,11 @@ export default function NewsletterSignup({
 
   return (
     <section className={className}>
-      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-(--muted)">
         <FaEnvelope className="h-3.5 w-3.5" aria-hidden="true" />
         <span>Stay up to date</span>
       </div>
-      <p className="mt-4 text-[14px] text-[var(--muted)]">
+      <p className="mt-4 text-[14px] text-(--muted)">
         Get notified when I publish something new.
       </p>
       <form className="mt-5 flex gap-2" onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ export default function NewsletterSignup({
               setMessage("");
             }
           }}
-          className="h-[42px] min-w-0 flex-1 rounded-md border border-[rgba(41,37,36,0.14)] bg-transparent px-3 text-[14px] text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--accent)]"
+          className="h-[42px] min-w-0 flex-1 rounded-md border border-[rgba(41,37,36,0.14)] bg-transparent px-3 text-[14px] text-foreground outline-none transition-colors placeholder:text-(--muted) focus:border-(--accent)"
         />
         <button
           type="submit"
@@ -84,7 +84,7 @@ export default function NewsletterSignup({
         <p
           aria-live="polite"
           className={`mt-3 text-[13px] ${
-            status === "error" ? "text-[#b45309]" : "text-[var(--accent)]"
+            status === "error" ? "text-[#b45309]" : "text-(--accent)"
           }`}
         >
           {message}

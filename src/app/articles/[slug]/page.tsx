@@ -44,7 +44,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <main className="px-6 pb-14 pt-8 text-[15px] sm:px-10 lg:px-16 lg:pt-10">
-      <div className="mx-auto max-w-[1120px]">
+      <div className="mx-auto max-w-280">
         <header className="article-page-inner mb-14 flex items-center justify-between gap-6">
           <Link
             href="/"
@@ -52,19 +52,19 @@ export default async function ArticlePage({ params }: Props) {
           >
             Farel Ganlaky
           </Link>
-          <div className="flex items-center gap-6 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--muted)]">
-            <Link href="/articles" className="relative text-[var(--accent)]">
+          <div className="flex items-center gap-6 text-[11px] font-medium uppercase tracking-[0.18em] text-(--muted)">
+            <Link href="/articles" className="relative text-(--accent)">
               Articles
-              <span className="absolute -top-3 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[var(--accent)]" />
+              <span className="absolute -top-3 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-(--accent)" />
             </Link>
             <div className="relative hidden sm:block">
               <input
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                className="h-8 w-[152px] rounded-md border border-[var(--border)] bg-transparent px-3 pr-14 text-[11px] tracking-[0.04em] normal-case text-[var(--foreground)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--accent)]"
+                className="h-8 w-38 rounded-md border border-(--border) bg-transparent px-3 pr-14 text-[11px] tracking-[0.04em] normal-case text-foreground outline-none transition-colors placeholder:text-(--muted) focus:border-(--accent)"
               />
-              <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 rounded border border-[var(--border)] px-1.5 py-0.5 text-[9px] tracking-[0.16em] text-[var(--muted)]">
+              <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 rounded border border-(--border) px-1.5 py-0.5 text-[9px] tracking-[0.16em] text-(--muted)">
                 Ctrl K
               </span>
             </div>
@@ -74,7 +74,7 @@ export default async function ArticlePage({ params }: Props) {
         <div className="article-page-inner mb-7">
           <Link
             href="/articles"
-            className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+            className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-(--muted) transition-colors hover:text-foreground"
           >
             <FaArrowLeft className="h-3 w-3" aria-hidden="true" />
             All Articles
@@ -84,14 +84,14 @@ export default async function ArticlePage({ params }: Props) {
         <div className="article-page-inner mb-7">
           <time
             dateTime={article.date}
-            className="block text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--muted)]"
+            className="block text-[11px] font-medium uppercase tracking-[0.18em] text-(--muted)"
           >
             {formatDate(article.date)}
           </time>
-          <h1 className="mt-3 text-[32px] font-semibold leading-[1.25] tracking-[-0.03em] text-[var(--foreground)] sm:text-[38px]">
+          <h1 className="mt-3 text-[32px] font-semibold leading-[1.25] tracking-[-0.03em] text-foreground sm:text-[38px]">
             {article.title}
           </h1>
-          <p className="mt-3 text-[18px] leading-[1.55] text-[var(--muted)]">
+          <p className="mt-3 text-[18px] leading-[1.55] text-(--muted)">
             {article.excerpt}
           </p>
         </div>
