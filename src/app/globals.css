@@ -1,9 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
   color-scheme: light;
-  --background: #f9f7f3;
+  --background: #ffffff;
   --foreground: #292524;
   --muted: #6b6764;
   --border: rgba(41, 37, 36, 0.08);
@@ -31,13 +30,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family:
-    "Outfit",
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+    var(--font-serif),
+    ui-serif,
+    Georgia,
+    "Times New Roman",
+    serif;
   text-rendering: optimizeLegibility;
 }
 

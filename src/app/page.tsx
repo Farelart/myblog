@@ -7,45 +7,20 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import { GiGuitar, GiPianoKeys, GiSaxophone } from "react-icons/gi";
-import { articles, formatDate } from "@/lib/articles";
-import NewsletterSignup from "@/components/NewsletterSignup";
-
-const RECENT_COUNT = 3;
 
 export default function Home() {
-  const recent = articles.slice(0, RECENT_COUNT);
-
   return (
     <main className="page-shell px-6 pb-10 pt-8 text-[15px] sm:px-10 lg:px-16 lg:pt-10">
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-190 flex-col">
 
         {/* ── Header ── */}
-        <header className="mb-14 flex items-center justify-between gap-6">
+        <header className="mb-14 flex items-center gap-6">
           <Link
             href="/"
             className="text-[18px] font-semibold tracking-[-0.02em]"
           >
             Farel Ganlaky
           </Link>
-          <div className="flex items-center gap-6 text-[11px] font-medium uppercase tracking-[0.18em] text-(--muted)">
-            <Link
-              href="/articles"
-              className="transition-colors hover:text-foreground"
-            >
-              Articles
-            </Link>
-            <div className="relative hidden sm:block">
-              <input
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                className="h-8 w-38 rounded-md border border-(--border) bg-transparent px-3 pr-14 text-[11px] tracking-[0.04em] normal-case text-foreground outline-none transition-colors placeholder:text-(--muted) focus:border-(--accent)"
-              />
-              <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 rounded border border-(--border) px-1.5 py-0.5 text-[9px] tracking-[0.16em] text-(--muted)">
-                Ctrl K
-              </span>
-            </div>
-          </div>
         </header>
 
         {/* ── Bio + Photo ── */}
@@ -53,54 +28,21 @@ export default function Home() {
           <div className="max-w-[470px] flex-1">
             <div className="bio-copy space-y-5 text-[18px] leading-[1.6] tracking-[-0.02em] text-foreground">
               <p>
-                I&apos;m Farel Ganlaky, an AI engineer based in Benin{" "}
-                <span
-                  aria-label="Benin flag"
-                  className="inline-flex h-[0.78em] w-[1.15em] overflow-hidden rounded-[2px] border border-black/15 align-[-0.08em] shadow-[0_1px_2px_rgba(41,37,36,0.08)]"
-                  title="Benin"
-                >
-                  <span className="h-full w-[40%] bg-[#008751]" />
-                  <span className="flex h-full flex-1 flex-col">
-                    <span className="flex-1 bg-[#fcd116]" />
-                    <span className="flex-1 bg-[#e8112d]" />
-                  </span>
-                </span>
-                . I work at{" "}
+                I&apos;m Farel Ganlaky, an AI engineer at{" "}
                 <a href="https://tamebi.ai/" target="_blank" rel="noreferrer">
                   Tamebi AI
                 </a>
-                , building{" "}
-                <a href="https://qualiwo.com/" target="_blank" rel="noreferrer">
-                  Qualiwo
-                </a>
-                , an{" "}
-                <span className="bio-highlight">
-                  agentic commerce platform
-                </span>
-                , and working on{" "}
-                <span className="bio-highlight">LLM inference</span>, helping
-                privacy-conscious companies adopt open-source models. More at{" "}
-                <a href="https://lab.tamebi.ai/" target="_blank" rel="noreferrer">
-                  lab.tamebi.ai
-                </a>
-                .
+                . I work on{" "}
+                <span className="bio-highlight">enterprise search</span> and{" "}
+                <span className="bio-highlight">LLM inference</span>: serving,
+                deploying and fine-tuning open-source models.
               </p>
               <p>
-                Before this, I spent eight years studying and working in Morocco{" "}
-                <span
-                  aria-label="Morocco flag"
-                  className="relative ml-1 inline-flex h-[0.95em] w-[1.4em] items-center justify-center rounded-[2px] border border-black/15 bg-[#c1272d] text-[0.62em] leading-none text-[#006233] align-[-0.12em] shadow-[0_1px_2px_rgba(41,37,36,0.08)]"
-                  title="Morocco"
-                >
-                  ★
-                </span>
-                . Day to day, I build systems, read papers on{" "}
+                I read papers on{" "}
                 <span className="bio-highlight">
-                  agentic retrieval systems, memory, continual learning, sample
-                  efficiency, and compression
+                  agentic retrieval, memory and continual learning
                 </span>
-                , and stay close to my lifelong passion:{" "}
-                <span className="bio-highlight">musical instruments</span>
+                , and play the piano, guitar and saxophone
                 <span
                   aria-label="Piano, guitar, and saxophone"
                   className="ml-1.5 inline-flex flex-row items-center gap-1 align-[-0.12em] text-(--muted)"
@@ -164,60 +106,6 @@ export default function Home() {
             </div>
           </aside>
         </section>
-
-        {/* ── Recent Articles ── */}
-        <section className="mt-14 sm:mt-18">
-          <div className="space-y-0 divide-y divide-(--border)">
-            {recent.map((article, i) => (
-              <article key={article.slug} className="py-7 first:pt-0">
-                <time
-                  dateTime={article.date}
-                  className="block text-[11px] font-medium uppercase tracking-[0.18em] text-(--muted)"
-                >
-                  {formatDate(article.date)}
-                </time>
-                <h2
-                  className={`mt-3 text-[22px] font-semibold tracking-tight ${
-                    i === 0
-                      ? "text-(--accent)"
-                      : "text-foreground"
-                  }`}
-                >
-                  <Link
-                    href={`/articles/${article.slug}`}
-                    className="hover:underline underline-offset-4 decoration-(--accent-decoration)"
-                  >
-                    {article.title}
-                  </Link>
-                </h2>
-                <p className="mt-3 text-[16px] leading-[1.7] text-(--muted)">
-                  {article.excerpt}
-                </p>
-                <Link
-                  href={`/articles/${article.slug}`}
-                  className="mt-5 inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-(--accent) transition-opacity hover:opacity-70"
-                >
-                  Read Article
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </article>
-            ))}
-          </div>
-
-          {/* All Writing link */}
-          <div className="mt-4 border-t border-(--border) pt-6">
-            <Link
-              href="/articles"
-              className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-(--muted) transition-colors hover:text-foreground"
-            >
-              All Writing
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </section>
-
-        {/* ── Newsletter ── */}
-        <NewsletterSignup className="mt-12" source="home" />
 
         {/* ── Footer ── */}
         <footer className="footer-rule mt-14 flex flex-col gap-5 pt-6 text-[11px] uppercase tracking-[0.2em] text-(--muted) sm:mt-10 sm:flex-row sm:items-center sm:justify-between">
