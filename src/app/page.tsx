@@ -32,8 +32,7 @@ export default function Home() {
                 <a href="https://tamebi.ai/" target="_blank" rel="noreferrer">
                   Tamebi AI
                 </a>
-                , where I spend my days on two problems I can&apos;t stop
-                thinking about:{" "}
+                , where I work on{" "}
                 <span className="bio-highlight">enterprise search</span>, getting
                 AI to find the right answer in everything a company knows, and{" "}
                 <span className="bio-highlight">LLM inference</span>, making
