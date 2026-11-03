@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Source_Serif_4 } from "next/font/google";
+import { Lora } from "next/font/google";
 import "./globals.css";
 
 const siteUrl =
@@ -10,10 +10,10 @@ const siteUrl =
 // Served from the site itself. A Google Fonts @import at the top of
 // globals.css is dropped by the CSS pipeline, which is how the previous font
 // never loaded.
-const serif = Source_Serif_4({
+const lora = Lora({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  variable: "--font-serif",
+  variable: "--font-lora",
   display: "swap",
 });
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${serif.variable} h-full antialiased`}>
+    <html lang="en" className={`${lora.variable} h-full antialiased`}>
       <body className="min-h-full">
         {children}
         <Analytics />

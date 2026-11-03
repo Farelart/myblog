@@ -26,7 +26,7 @@ export default function Home() {
         {/* ── Bio + Photo ── */}
         <section className="flex flex-1 flex-col gap-12 lg:flex-row lg:gap-16">
           <div className="max-w-[470px] flex-1">
-            <div className="bio-copy space-y-5 text-[18px] leading-[1.6] tracking-[-0.02em] text-foreground">
+            <div className="bio-copy space-y-4 text-[16px] leading-[1.65] tracking-[-0.02em] text-foreground">
               <p>
                 I&apos;m Farel Ganlaky, an AI engineer at{" "}
                 <a href="https://tamebi.ai/" target="_blank" rel="noreferrer">

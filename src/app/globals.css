@@ -30,10 +30,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family:
-    var(--font-serif),
+    var(--font-lora),
     ui-serif,
     Georgia,
-    "Times New Roman",
     serif;
   text-rendering: optimizeLegibility;
 }
