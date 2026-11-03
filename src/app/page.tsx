@@ -6,7 +6,7 @@ import {
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
-import { GiGuitar, GiPianoKeys, GiSaxophone } from "react-icons/gi";
+import { GiPianoKeys } from "react-icons/gi";
 
 export default function Home() {
   return (
@@ -32,7 +32,7 @@ export default function Home() {
                 <a href="https://tamebi.ai/" target="_blank" rel="noreferrer">
                   Tamebi AI
                 </a>
-                , where I work on{" "}
+                . I work on{" "}
                 <span className="bio-highlight">enterprise search</span>, getting
                 AI to find the right answer in everything a company knows, and{" "}
                 <span className="bio-highlight">LLM inference</span>, making
@@ -44,14 +44,12 @@ export default function Home() {
                 <span className="bio-highlight">
                   agentic retrieval, memory and continual learning
                 </span>
-                , or playing the piano, the guitar or the saxophone
+                , or playing the piano
                 <span
-                  aria-label="Piano, guitar, and saxophone"
+                  aria-label="Piano"
                   className="ml-1.5 inline-flex flex-row items-center gap-1 align-[-0.12em] text-(--muted)"
                 >
                   <GiPianoKeys aria-hidden="true" className="h-[1em] w-[1em]" />
-                  <GiGuitar aria-hidden="true" className="h-[1em] w-[1em]" />
-                  <GiSaxophone aria-hidden="true" className="h-[1em] w-[1em]" />
                 </span>
                 .
               </p>

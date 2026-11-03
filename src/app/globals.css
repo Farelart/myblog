@@ -2584,7 +2584,7 @@ a {
 
 /* A highlighter stroke under the key words, not a box around them. */
 .bio-highlight {
-  background: linear-gradient(to top, rgba(245, 184, 35, 0.4) 0.36em, transparent 0.36em) !important;
+  background: linear-gradient(to top, rgba(245, 184, 35, 0.55) 0.18em, transparent 0.18em) !important;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   padding: 0 0.04em;
