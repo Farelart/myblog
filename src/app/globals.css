@@ -2582,13 +2582,12 @@ a {
   text-decoration-color: var(--accent-hover);
 }
 
+/* A highlighter stroke under the key words, not a box around them. */
 .bio-highlight {
-  border-radius: 3px;
-  background: rgba(245, 184, 35, 0.46) !important;
-  box-shadow: inset 0 0 0 1px rgba(204, 133, 12, 0.12);
+  background: linear-gradient(to top, rgba(245, 184, 35, 0.4) 0.36em, transparent 0.36em) !important;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  padding: 0.02em 0.18em;
+  padding: 0 0.04em;
 }
 
 .flag-morocco::after {

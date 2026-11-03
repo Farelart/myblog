@@ -28,21 +28,24 @@ export default function Home() {
           <div className="max-w-[470px] flex-1">
             <div className="bio-copy space-y-4 text-[16px] leading-[1.65] tracking-[-0.02em] text-foreground">
               <p>
-                I&apos;m Farel Ganlaky, an AI engineer at{" "}
+                Hi, I&apos;m Farel. I&apos;m an AI engineer at{" "}
                 <a href="https://tamebi.ai/" target="_blank" rel="noreferrer">
                   Tamebi AI
                 </a>
-                . I work on{" "}
-                <span className="bio-highlight">enterprise search</span> and{" "}
-                <span className="bio-highlight">LLM inference</span>: serving,
-                deploying and fine-tuning open-source models.
+                , where I spend my days on two problems I can&apos;t stop
+                thinking about:{" "}
+                <span className="bio-highlight">enterprise search</span>, getting
+                AI to find the right answer in everything a company knows, and{" "}
+                <span className="bio-highlight">LLM inference</span>, making
+                open-source models run fast, reliably and affordably on real
+                hardware.
               </p>
               <p>
-                I read papers on{" "}
+                When I&apos;m not building, I&apos;m reading papers on{" "}
                 <span className="bio-highlight">
                   agentic retrieval, memory and continual learning
                 </span>
-                , and play the piano, guitar and saxophone
+                , or playing the piano, the guitar or the saxophone
                 <span
                   aria-label="Piano, guitar, and saxophone"
                   className="ml-1.5 inline-flex flex-row items-center gap-1 align-[-0.12em] text-(--muted)"
