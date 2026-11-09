@@ -12,7 +12,7 @@ export default function Home() {
     <main className="page-shell flex flex-col px-6 pb-10 pt-8 text-[15px] sm:px-10 lg:px-16 lg:pt-10">
       <div className="mx-auto flex w-full max-w-190 flex-1 flex-col">
 
-        {/* ── Bio | Photo ── */}
+        {/* ── Bio ── */}
         <section className="flex flex-1 flex-col gap-12 lg:flex-row lg:gap-16">
           <div className="max-w-[470px] flex-1">
             <div className="bio-copy space-y-4 text-[16px] leading-[1.65] tracking-[-0.02em] text-foreground">
@@ -55,56 +55,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-
-          <aside className="w-full lg:max-w-55">
-            <div className="relative aspect-square w-full overflow-hidden rounded-md border border-black/5 bg-[#e9e3dc]">
-              <Image
-                src="/farel.jpg"
-                alt="Portrait"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 220px"
-              />
-            </div>
-
-            <div className="mt-6 space-y-3 text-[14px] text-(--muted)">
-              <a
-                href="https://www.linkedin.com/in/farel-ganlaky-395293252/"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 transition-colors hover:text-foreground"
-              >
-                <FaLinkedinIn className="h-4 w-4" aria-hidden="true" />
-                <span>LinkedIn</span>
-              </a>
-              <a
-                href="https://github.com/Farelart"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 transition-colors hover:text-foreground"
-              >
-                <FaGithub className="h-4 w-4" aria-hidden="true" />
-                <span>GitHub</span>
-              </a>
-              <a
-                href="mailto:farelganlaky@gmail.com"
-                className="flex items-center gap-3 text-[14px] text-(--muted) transition-colors hover:text-foreground"
-              >
-                <FaEnvelope className="h-4 w-4" aria-hidden="true" />
-                <span>farelganlaky@gmail.com</span>
-              </a>
-              <a
-                href="https://x.com/farelmanifold"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 transition-colors hover:text-foreground"
-              >
-                <FaXTwitter className="h-4 w-4" aria-hidden="true" />
-                <span>X</span>
-              </a>
-            </div>
-          </aside>
         </section>
 
         {/* ── Footer ── */}
