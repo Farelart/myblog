@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   FaEnvelope,
   FaGithub,
@@ -13,21 +12,23 @@ export default function Home() {
     <main className="page-shell flex flex-col px-6 pb-10 pt-8 text-[15px] sm:px-10 lg:px-16 lg:pt-10">
       <div className="mx-auto flex w-full max-w-190 flex-1 flex-col">
 
-        {/* ── Name + Bio | Photo ── */}
+        {/* ── Bio | Photo ── */}
         <section className="flex flex-1 flex-col gap-12 lg:flex-row lg:gap-16">
           <div className="max-w-[470px] flex-1">
-            <header className="mb-14 flex items-center gap-6">
-              <Link
-                href="/"
-                className="text-[18px] font-semibold tracking-[-0.02em]"
-              >
-                Farel Ganlaky
-              </Link>
-            </header>
-
             <div className="bio-copy space-y-4 text-[16px] leading-[1.65] tracking-[-0.02em] text-foreground">
               <p>
-                Hi, I&apos;m Farel. I&apos;m an AI engineer at{" "}
+                Hi, I&apos;m Farel.{" "}
+                {/* Micah avatar by Micah Lanier, CC BY 4.0, via DiceBear (credit kept in the SVG) */}
+                <Image
+                  src="/farel-avatar.svg"
+                  alt="Illustration of Farel"
+                  width={264}
+                  height={326}
+                  unoptimized
+                  priority
+                  className="mx-1 inline-block h-14 w-auto align-[-0.4em]"
+                />{" "}
+                I&apos;m an AI engineer at{" "}
                 <a href="https://tamebi.ai/" target="_blank" rel="noreferrer">
                   Tamebi AI
                 </a>
