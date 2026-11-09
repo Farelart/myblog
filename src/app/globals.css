@@ -22,6 +22,12 @@
 
 html {
   background: var(--background);
+  /* The page still scrolls on small screens, without a visible bar. */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {

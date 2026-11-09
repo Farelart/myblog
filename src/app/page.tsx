@@ -10,22 +10,21 @@ import { GiPianoKeys } from "react-icons/gi";
 
 export default function Home() {
   return (
-    <main className="page-shell px-6 pb-10 pt-8 text-[15px] sm:px-10 lg:px-16 lg:pt-10">
-      <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-190 flex-col">
+    <main className="page-shell flex flex-col px-6 pb-10 pt-8 text-[15px] sm:px-10 lg:px-16 lg:pt-10">
+      <div className="mx-auto flex w-full max-w-190 flex-1 flex-col">
 
-        {/* ── Header ── */}
-        <header className="mb-14 flex items-center gap-6">
-          <Link
-            href="/"
-            className="text-[18px] font-semibold tracking-[-0.02em]"
-          >
-            Farel Ganlaky
-          </Link>
-        </header>
-
-        {/* ── Bio + Photo ── */}
+        {/* ── Name + Bio | Photo ── */}
         <section className="flex flex-1 flex-col gap-12 lg:flex-row lg:gap-16">
           <div className="max-w-[470px] flex-1">
+            <header className="mb-14 flex items-center gap-6">
+              <Link
+                href="/"
+                className="text-[18px] font-semibold tracking-[-0.02em]"
+              >
+                Farel Ganlaky
+              </Link>
+            </header>
+
             <div className="bio-copy space-y-4 text-[16px] leading-[1.65] tracking-[-0.02em] text-foreground">
               <p>
                 Hi, I&apos;m Farel. I&apos;m an AI engineer at{" "}
@@ -56,7 +55,7 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className="w-full lg:max-w-55 lg:pt-2">
+          <aside className="w-full lg:max-w-55">
             <div className="relative aspect-square w-full overflow-hidden rounded-md border border-black/5 bg-[#e9e3dc]">
               <Image
                 src="/farel.jpg"
