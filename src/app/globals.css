@@ -30,7 +30,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family:
-    var(--font-cmu-serif),
+    var(--font-plex-serif),
     ui-serif,
     Georgia,
     serif;

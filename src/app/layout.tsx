@@ -1,24 +1,20 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import localFont from "next/font/local";
+import { IBM_Plex_Serif } from "next/font/google";
 import "./globals.css";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
-// Computer Modern, the LaTeX font (CMU Serif, OFL, see fonts/OFL.txt).
 // Served from the site itself. A Google Fonts @import at the top of
 // globals.css is dropped by the CSS pipeline, which is how an earlier font
-// never loaded.
-const cmuSerif = localFont({
-  src: [
-    { path: "./fonts/cmu-serif-500-roman.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/cmu-serif-500-italic.woff2", weight: "400", style: "italic" },
-    { path: "./fonts/cmu-serif-700-roman.woff2", weight: "700", style: "normal" },
-    { path: "./fonts/cmu-serif-700-italic.woff2", weight: "700", style: "italic" },
-  ],
-  variable: "--font-cmu-serif",
+// never loaded. 400 for the bio, 600 for the name in the header.
+const plexSerif = IBM_Plex_Serif({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-plex-serif",
   display: "swap",
 });
 
@@ -34,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cmuSerif.variable} h-full antialiased`}>
+    <html lang="en" className={`${plexSerif.variable} h-full antialiased`}>
       <body className="min-h-full">
         {children}
         <Analytics />
